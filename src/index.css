@@ -1,0 +1,9 @@
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    height:100vh;
+    width:100%;
+    background: pink url('./img/test.jpg') center / auto no-repeat;
+}
