@@ -1,0 +1,25 @@
+/*! 版权所有，蜂蜜所有，翻版必究 */
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    height:100vh;
+    width:100%;
+    background: pink url(images/28d3074883749018d945f810b49ff099.jpg) center / auto no-repeat;
+    /* transform: translateX(30px); */
+    display:-webkit-box;
+    display:flex;
+}
+.test {
+  color: red;
+}
+.test span {
+  color: green;
+  box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.4);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
