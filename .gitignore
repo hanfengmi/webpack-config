@@ -1,4 +1,5 @@
 *.log
 *.temp
+/dist
 /vendor
 /node_modules
