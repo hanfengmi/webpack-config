@@ -1,16 +1,36 @@
+/*
+ * @Author: Yonyou
+ * @Date: 2020-01-03 11:40:40
+ * @LastEditTime : 2020-01-15 14:47:46
+ * @LastEditors  : hanfengmi
+ * @Description: 
+ */
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+
 let env = process.env.NODE_ENV == "development" ? "development" : "production";
 module.exports = {
-  entry: './src/index.js', // 入口文件
+  entry: path.resolve(__dirname,'src/index.js'), // 入口文件
   output: {
     path: path.resolve(__dirname, 'dist'), // 定义输出目录
-    filename: '[name]-[chunkhash].bundle.js'  // 定义输出文件名称
+    filename: '[name]-[chunkhash].bundle.js',  // 定义输出文件名称
+    chunkFilename: "[name].[chunkhash].chunk.js",
   },
   
   plugins: [
+    new MiniCssExtractPlugin({
+  　　filename: "[name].[chunkhash:8].css",
+  　　chunkFilename: "[id].css"
+　　}),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),// 压缩moment,删除语言包
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns:["**/*","!lib","!lib/**"]
+    }), //清理dist文件夹
     new webpack.BannerPlugin('版权所有，蜂蜜所有，翻版必究'),
     new HtmlWebpackPlugin({
         template: './src/index.html',//根据自己的指定的模板文件来生成特定的 html 文件。这里的模板类型可以是任意你喜欢的模板，可以是 html, jade, ejs, hbs, 等等，但是要注意的是，使用自定义的模板文件时，需要提前安装对应的 loader， 否则webpack不能正确解析
@@ -32,6 +52,7 @@ module.exports = {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
             fallback: "style-loader", 
+            
             use: ["css-loader", "postcss-loader"]
         })  // 这里顺序不能颠倒
       },
@@ -46,6 +67,19 @@ module.exports = {
               esModule: false // file-load问题，与html-withimg-loader冲突
            }
         }]
+      },
+      {
+        test: /\.(eot|woff2?|ttf|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              name: "[name]-[hash:5].min.[ext]",
+              limit: 5000, // fonts file size <= 5KB, use 'base64'; else, output svg file
+              outputPath: "fonts/"
+            }
+          }
+        ]
       },
       {
         test: /\.(htm|html)$/i,
