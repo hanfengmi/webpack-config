@@ -1,96 +1,296 @@
- 
- 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>聊天记录</title>
+<title>服务记录</title>
 
-<link rel="stylesheet" href="http://local.res.layui.com/layui/src/css/layui.css">
+<link rel="stylesheet" href="../../../layui.css">
 <style>
-body .layim-chat-main{height: auto;}
+  html body {
+    margin:0;
+  }
+  body .layim-chat-main{
+    padding:0;
+    height: auto;
+  }
+  .layim-chat-main .more {
+    text-align: center;
+    line-height: 32px;
+    height: 40px;
+  }
+  .layim-chat-main #LAY_view {
+    height:calc(100vh-30px);
+    margin:0;
+    padding:0 10px;
+  }
+  .layim-chat-main #LAY_view li {
+    font-size:14px !important;
+    padding-left:0;
+    padding:0 20px;
+    border-top:1px solid #ccc;
+    margin-bottom:10px;
+  }
+  .layim-chat-main #LAY_view li .serve-time,
+  .layim-chat-main #LAY_view li .detail-title {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .layim-chat-main #LAY_view li .detail-title span {
+    cursor: pointer;
+  }
 </style>
+<script>
+      /**
+     * 获取地址栏参数
+     * @param {name} 获得地址栏的参数
+     * @returns
+     */
+     function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    var defineUrl = '//fwq.yonyou.com'
+    function addDomain(url) {
+      if(url.substr(0,7).toLowerCase() == "http://" || url.substr(0,8).toLowerCase() == "https://"){
+        return url;
+      }else{
+        return defineUrl + url;
+      }
+    }
+</script>
 </head>
 <body>
 
 <div class="layim-chat-main">
+    <!-- <div class="more" onClick="showmore">点击查看更多</div> -->
+  <div class="dateSearch" style="height:30px">
+    日期
+  </div>
   <ul id="LAY_view"></ul>
+  <div id="end"></div>
 </div>
 
 <div id="LAY_page" style="margin: 0 10px;"></div>
 
-
 <textarea title="消息模版" id="LAY_tpl" style="display:none;">
 {{# layui.each(d.data, function(index, item){
-  if(item.id == parent.layui.layim.cache().mine.id){ }}
-    <li class="layim-chat-mine"><div class="layim-chat-user"><img src="{{ item.avatar }}"><cite><i>{{ layui.data.date(item.timestamp) }}</i>{{ item.username }}</cite></div><div class="layim-chat-text">{{ layui.layim.content(item.content) }}</div></li>
+
+  if(item.title){ }} 
+    <p class="detail-title">{{item.title}} <span>查看</span></p>
+  {{# } else if(item.id){ }}
+    <p class="detail-title">预约单{{item.case_num}} {{item.state}} <span>查看</span></p>
   {{# } else { }}
-    <li><div class="layim-chat-user"><img src="{{ item.avatar }}"><cite>{{ item.username }}<i>{{ layui.data.date(item.timestamp) }}</i></cite></div><div class="layim-chat-text">{{ layui.layim.content(item.content) }}</div></li>
+    <p class="detail-title">服务单{{item.case_num}} {{item.status_name}}  <span>查看</span></p>
   {{# }
+
 }); }}
 </textarea>
 
-<!-- 
-上述模版采用了 laytpl 语法，不了解的同学可以去看下文档：http://www.layui.com/doc/modules/laytpl.html
-
--->
-
-
-<script src="http://local.res.layui.com/layui/src/layui.js"></script>
+<script src="../../../../layui.js"></script>
 <script>
 layui.use(['layim', 'laypage'], function(){
-  var layim = layui.layim
-  ,layer = layui.layer
-  ,laytpl = layui.laytpl
-  ,$ = layui.jquery
-  ,laypage = layui.laypage;
-  
-  //聊天记录的分页此处不做演示，你可以采用laypage，不了解的同学见文档：http://www.layui.com/doc/modules/laypage.html
-  
-  
-  //开始请求聊天记录
-  var param =  location.search //获得URL参数。该窗口url会携带会话id和type，他们是你请求聊天记录的重要凭据
-  
-  //实际使用时，下述的res一般是通过Ajax获得，而此处仅仅只是演示数据格式
-  ,res = {
-    code: 0
-    ,msg: ''
-    ,data: [{
-      username: '纸飞机'
-      ,id: 100000
-      ,avatar: 'http://tva3.sinaimg.cn/crop.0.0.512.512.180/8693225ajw8f2rt20ptykj20e80e8weu.jpg'
-      ,timestamp: 1480897882000
-      ,content: 'face[抱抱] face[心] 你好啊小美女'
-    }, {
-      username: 'Z_子晴'
-      ,id: 108101
-      ,avatar: 'http://tva3.sinaimg.cn/crop.0.0.512.512.180/8693225ajw8f2rt20ptykj20e80e8weu.jpg'
-      ,timestamp: 1480897892000
-      ,content: '你没发错吧？face[微笑]'
-    },{
-      username: 'Z_子晴'
-      ,id: 108101
-      ,avatar: 'http://tva3.sinaimg.cn/crop.0.0.512.512.180/8693225ajw8f2rt20ptykj20e80e8weu.jpg'
-      ,timestamp: 1480897898000
-      ,content: '你是谁呀亲。。我爱的是贤心！我爱的是贤心！我爱的是贤心！重要的事情要说三遍~'
-    },{
-      username: 'Z_子晴'
-      ,id: 108101
-      ,avatar: 'http://tva3.sinaimg.cn/crop.0.0.512.512.180/8693225ajw8f2rt20ptykj20e80e8weu.jpg'
-      ,timestamp: 1480897908000
-      ,content: '注意：这些都是模拟数据，实际使用时，需将其中的模拟接口改为你的项目真实接口。\n该模版文件所在目录（相对于layui.js）：\n/css/modules/layim/html/chatlog.html'
-    }]
+  var layim = layui.layim,
+  layer = layui.layer,
+  laytpl = layui.laytpl,
+  $ = layui.jquery,
+  laypage = layui.laypage;
+
+  var defineUrl = '//branch.yonyou.com';
+  var chatlogObj = {
+    param: location.search.substring(1).replace('from', 'userid'), //获得URL参数。该窗口url会携带会话id和type，他们是你请求聊天记录的重要凭据
+    getAllList:false,// 获取所有聊天信息
+    init:function(){
+      this.requestMessage();
+      // this.getMoreData();
+      // this.getBigImg();
+    },
+    requestMessage:function(){// 默认请求第0页
+      if(this.getAllList) return false;
+      var index = layer.load()
+      var that = this;
+      $.ajax({
+        url: defineUrl + '/yychat/im/index.php?r=ImCase/GetUserCaseList',
+        type:'POST',
+        data:{
+          appId: 'wy11ffc4ba33fb21c36b4813',// getQueryArray(that.param).appiddes,
+          userId: '1',//getQueryArray(that.param).userid,
+          userType: '3',
+          userPhone: '15869079711', //getQueryArray(that.param).phone,
+          condition:{
+            pageSize:'99',
+          }
+        },
+        dataType: 'JSON',
+        success:function (res) {
+          if(res.Success){
+            if($.isEmptyObject(res.Data)){
+              layer.close(index)
+              layer.msg('已经是所有记录了');
+              that.getAllList = true;
+              return false;
+            }else {
+              layer.close(index);
+              const mock = {// 聊天信息
+                '2019-12-17':[{title:'与小友聊天'},{title:'与顾问聊天001聊天'}],
+                '2019-12-15':[{title:'与小友聊天'},{title:'与顾问聊天002聊天'}],
+                '2019-12-13':[{title:'与小友聊天'},{title:'与顾问聊天003聊天'}],
+                '2019-12-11':[{title:'与小友聊天'},{title:'与顾问聊天004聊天'}],
+                '2019-12-05':[{title:'与小友聊天'},{title:'与顾问聊天005聊天'}],
+                '2019-12-01':[{title:'与小友聊天'},{title:'与顾问聊天006聊天'}]
+              }
+              var dateArr = momentReset.getDateStr();
+              for (var date in dateArr) {
+                if(res.Data.caseList[date] && mock[date]){// 共同存在
+                  dateArr[date] = mock[date].concat(res.Data.caseList[date])
+                }else if(res.Data.caseList[date] && !mock[date]){
+                  dateArr[date] = res.Data.caseList[date]
+                }else if(!res.Data.caseList[date] && mock[date]){
+                  dateArr[date] = mock[date]
+                }
+              }
+              console.log('momentReset',dateArr)
+              for (const key in dateArr) {
+                if(dateArr[key].length){
+                  var html = '<li>'+
+                                '<p class="serve-time">'+key+'<span>'+dateArr[key].length+'次</span></p>'+
+                                laytpl(LAY_tpl.value).render({
+                                  data: dateArr[key]
+                                })
+                              '</li>';
+                  $('#LAY_view').append(html);
+                }
+              }
+            }
+          }
+        }
+      })
+    },
+    getMoreData:function(){// 鼠标滚动请求下一页
+      window.onmousewheel = debounce(this.requestMessage.bind(this), 500)
+    },
+    getBigImg:function(){// 双击查看大图
+      //.layui-layim-photos
+      // $('#LAY_view').on('dblclick', '.layui-layim-photos', function(){
+      $('#LAY_view').on('dblclick', '.layim-chat-user img', function(){
+        console.log($(this))
+        var imgIndex = -1
+        var src = this.src;
+        layer.close(imgIndex);
+        layer.photos({
+          photos: {
+            data: [{
+              "src": src
+            }]
+          }
+          ,area: ['96%', '96%']
+          ,shade: 0.01
+          ,closeBtn: 2
+          ,anim: 0
+          ,resize: false
+          ,success: function(layero, index){
+            imgIndex = index;
+          }
+        });
+      });
+    }
   }
-  
-  //console.log(param)
-  
-  var html = laytpl(LAY_tpl.value).render({
-    data: res.data
-  });
-  $('#LAY_view').html(html);
-  
+
+  chatlogObj.init();
+
+  // 简单的防抖动函数
+  function debounce(func, wait) {
+      var timeout;
+      return function(e) {
+        clearTimeout(timeout);
+        if ($(document).scrollTop() === 0) {
+          timeout = setTimeout(func, wait);
+        }
+      };
+  };
+
+   // 将参数字符串转成字典
+   function getQueryArray(query) {
+      var rs = {}
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          rs[pair[0]] = pair[1]
+      }
+      return rs;
+  }
+// 
+  var momentReset = {
+    getPrevDays:function(date){
+      var date = (date && new Date(date)) || new Date();
+      var daysInMonth = new Array([0],[31],[28],[31],[30],[31],[30],[31],[31],[30],[31],[30],[31]);
+      var strYear = date.getFullYear();
+      var strDay = date.getDate();
+      var strMonth = date.getMonth()+1;
+      if(strYear%4 == 0 && strYear%100 != 0){
+        daysInMonth[2] = 29;
+      }
+      if(strMonth - 1 == 0) {
+        strYear -= 1;
+        strMonth = 12;
+      } else {
+        strMonth -= 1;
+      }
+      strDay = daysInMonth[strMonth] >= strDay ? strDay : daysInMonth[strMonth];
+      if(strMonth<10) {
+        strMonth="0"+strMonth;
+      }
+      if(strDay<10) {
+        strDay="0"+strDay;
+      }
+      datastr = strYear+"-"+strMonth+"-"+strDay;
+      return datastr;
+    },
+    getNowMonthDate() {// 获取当月第一天和最后一天
+      var date = new Date();
+      var year = date.getFullYear() + "";
+      var month = (date.getMonth() + 1) + "";
+      var day = date.getDate() + "";
+      var now = year + "-" + (month>9?month:'0'+month)+ '-' + (day>9?day:'0'+day);
+      console.log('nownownownownow',now)
+      return now;
+    },
+    getTargetDate(date,dayLength) {//获取传入日期上一天
+      dayLength = dayLength + 1;
+      var tempDate = new Date(date);
+      tempDate.setDate(tempDate.getDate() - dayLength);
+      var year = tempDate.getFullYear();
+      var month = tempDate.getMonth() + 1 < 10 ? "0" + (tempDate.getMonth() + 1) : tempDate.getMonth() + 1;
+      var day = tempDate.getDate() < 10 ? "0" + tempDate.getDate() : tempDate.getDate();
+      return year + "-" + month + "-" + day;
+    },
+    getDateStr(startDate, endDate, dayLength) {// 获取传入起止日期的日期数组（倒序）
+      // var startDate = startDate || this.getNowMonthDate().begin;
+      // var endDate = endDate || this.getNowMonthDate().end;
+      var startDate = startDate || this.getPrevDays();
+      var endDate = endDate || this.getNowMonthDate();
+      console.log(startDate,endDate)
+      var dayLength = dayLength || 0;
+      var that = this;
+      var obj = {};
+      obj[endDate] = []
+      for (var i = 0 ;; i++) {
+        var getDate = that.getTargetDate(endDate, dayLength);
+        endDate = getDate;
+        if (getDate >= startDate) {
+          obj[endDate] = []
+        } else {
+          break;
+        }
+      }
+      return obj
+    }
+  }
 });
+
 </script>
 </body>
 </html>

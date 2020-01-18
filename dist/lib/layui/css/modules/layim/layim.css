@@ -5,249 +5,2165 @@
  @Site: http://layim.layui.com
  
  */
-
+ @font-face {
+    font-family: 'layui-layim-iconfont';
+    /* project id 906040 */
+    src: url('//at.alicdn.com/t/font_906040_of06emybm4.eot');
+    src: url('//at.alicdn.com/t/font_906040_of06emybm4.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_906040_of06emybm4.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_906040_of06emybm4.woff') format('woff'),
+        url('//at.alicdn.com/t/font_906040_of06emybm4.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_906040_of06emybm4.svg#layui-layim-iconfont') format('svg');
+}
+.layui-layer .iconfont {
+    font-family: "layui-layim-iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -moz-osx-font-smoothing: grayscale;
+}
 /* 加载就绪标志 */
-html #layuicss-skinlayimcss{display:none; position: absolute; width:1989px;}
+html #layuicss-skinlayimcss {
+    display: none;
+    position: absolute;
+    width: 1989px;
+}
 
 body .layui-layim,
-body .layui-layim-chat{border: 1px solid #D9D9D9; border-color: rgba(0,0,0,.05); background-repeat: no-repeat; background-color: #F6F6F6; color: #333; font-family: \5FAE\8F6F\96C5\9ED1;}
-body .layui-layim-chat{background-size: cover;}
-body .layui-layim .layui-layer-title{height: 110px; border-bottom: none; background: none;}
-.layui-layim-main{position: relative; top: -98px; left:0;}
+body .layui-layim-chat {
+    border: 1px solid #D9D9D9;
+    border-color: rgba(0, 0, 0, .05);
+    background-repeat: no-repeat;
+    background-color: #F6F6F6;
+    /*设置默认照片*/
+    color: #333;
+    font-family: \5FAE\8F6F\96C5\9ED1;
+    border-radius: 10px;
+}
+
+body .layui-layim-chat {
+    background-size: cover;
+}
+
+body .layui-layim .layui-layer-title {
+    /*height: 110px;*/
+    height: 200px;
+    border-bottom: none;
+    background: none;
+    background-size: cover;
+}
+
+.layui-layim-main {
+    position: relative;
+    top: -98px;
+    left: 0;
+}
+
 body .layui-layim .layui-layer-content,
-body .layui-layim-chat .layui-layer-content{overflow: visible;}
+body .layui-layim-chat .layui-layer-content {
+    overflow: visible;
+    background: #fafafa;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
 .layui-layim cite,
 .layui-layim em,
 .layui-layim-chat cite,
-.layui-layim-chat em{font-style: normal;}
-.layui-layim-info{height: 50px; font-size: 0; padding: 0 15px;}
-.layui-layim-info *{font-size: 14px;}
-.layui-layim-info div,
+.layui-layim-chat em {
+    font-style: normal;
+}
+
+.layui-layim-info {
+    height: 50px;
+    font-size: 0;
+    padding: 0 15px;
+    text-align: center;
+    position: relative;
+    top: -63px;
+}
+.layui-layim-heads img{
+    display: inline-block;
+    width: 62px;
+    height: 62px;
+    background-color: #dad7ff;
+    border: solid 2px #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 10px 13px 0px rgba(21, 136, 202, 0.32);
+    user-select: none;
+}
+.layui-layer-setwin {
+    position: absolute;
+    /*left: 20px;*/
+    top: 20px;
+    font-size: 0;
+    line-height: initial;
+}
+.layui-layer-setwin a {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    overflow: hidden;
+}
+.layui-layim-info * {
+    font-size: 14px;
+}
+
 .layui-layim-tab li,
 .layim-tab-content li h5 *,
 .layui-layim-tool li,
-.layui-layim-skin li{display: inline-block; vertical-align: top; *zoom: 1; *display: inline;}
+.layui-layim-skin li {
+    display: inline-block;
+    vertical-align: top;
+    *zoom: 1;
+    *display: inline;
+}
+
 .layui-layim-info .layui-layim-user,
 .layui-layim-remark,
 .layui-layim-list li p,
 .layim-tab-content li h5 span,
-.layui-layim-list li span{overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
-.layui-layim-info .layui-layim-user{max-width: 150px; margin-right: 5px; font-size: 16px;}
-.layui-layim-status{position: relative; top: 2px; line-height: 19px; cursor: pointer;}
-.layim-status-online{color: #3FDD86;}
-.layim-status-hide{color: #DD691D;}
-.layim-menu-box{display: none; position: absolute; z-index: 100; top: 24px; left: -31px; padding: 5px 0; width: 85px; border: 1px solid #E2E2E2; border-radius: 2px; background-color: #fff; box-shadow: 1px 1px 20px rgba(0,0,0,.1);}
-.layim-menu-box li{position: relative; line-height: 22px; padding-left: 30px; font-size: 12px;}
-.layim-menu-box li cite{padding-right: 5px; font-size: 14px;}
-.layim-menu-box li i{display: none; position: absolute; left: 8px; top: 0; font-weight: 700; color: #5FB878;}
-.layim-menu-box .layim-this i{display: block;}
-.layim-menu-box li:hover{background-color: #eee;}
-.layui-layim-remark{position: relative; left: -6px; display: block; width: 100%; border: 1px solid transparent; margin-top: 8px; padding: 0 5px; height: 26px; line-height: 26px; background: none; border-radius: 2px;}
+.layui-layim-list li span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.layui-layim-info .layui-layim-user {
+    max-width: 150px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #222222;
+    padding-top: 15px;
+}
+
+.layui-layim-status {
+    position: relative;
+    top: 2px;
+    line-height: 19px;
+    cursor: pointer;
+}
+
+.layim-status-online {
+    color: #3FDD86;
+    display: none;
+}
+
+.layim-status-hide {
+    color: #DD691D;
+    display: none;
+}
+
+.layim-menu-box {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 24px;
+    left: -31px;
+    padding: 5px 0;
+    width: 85px;
+    border: 1px solid #E2E2E2;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, .1);
+}
+
+.layim-menu-box li {
+    position: relative;
+    line-height: 22px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+.layim-menu-box li cite {
+    padding-right: 5px;
+    font-size: 14px;
+}
+
+.layim-menu-box li i {
+    display: none;
+    position: absolute;
+    left: 8px;
+    top: 0;
+    font-weight: 700;
+    color: #5FB878;
+}
+
+.layim-menu-box .layim-this i {
+    display: block;
+}
+
+.layim-menu-box li:hover {
+    background-color: #eee;
+}
+
+.layui-layim-remark {
+    position: relative;
+    left: -6px;
+    display: block;
+    width: 100%;
+    border: 1px solid transparent;
+    margin-top: 8px;
+    padding: 0 5px;
+    height: 26px;
+    line-height: 26px;
+    background: none;
+    border-radius: 2px;
+    display: none;
+}
+
 .layui-layim-remark:hover,
-.layui-layim-remark:focus{border: 1px solid #d2d2d2; border-color: rgba(0,0,0,.15)}
-.layui-layim-remark:focus{background-color: #fff;}
+.layui-layim-remark:focus {
+    border: 1px solid #d2d2d2;
+    border-color: rgba(0, 0, 0, .15)
+}
 
-.layui-layim-tab{margin-top: 10px; padding: 9px 0; font-size: 0;}
-.layui-layim-tab li{position: relative; width: 33.33%; height: 24px; line-height:24px; font-size: 22px; text-align: center; color: #666; color: rgba(0,0,0,.6); cursor: pointer;}
-.layim-tab-two li{width: 50%;}
-.layui-layim-tab li.layim-this:after{content: ''; position: absolute; left: 0; bottom: -9px; width: 100%; height: 3px; background-color: #3FDD86;}
-.layui-layim-tab li.layim-hide{display: none;}
-.layui-layim-tab li:hover{opacity: 0.8; filter: Alpha(opacity=80);}
-.layim-tab-content{display: none; padding: 10px 0; height: 349px; overflow: hidden; background-color: #fff; background-color: rgba(255,255,255,0.9);}
-.layim-tab-content:hover{overflow-y: auto;}
-.layim-tab-content li h5{position:relative; margin-right: 15px; padding-left: 30px; height: 28px; line-height: 28px; cursor:pointer; font-size:0; white-space: nowrap; overflow: hidden;}
-.layim-tab-content li h5 *{font-size: 14px;}
-.layim-tab-content li h5 span{max-width: 125px;}
-.layim-tab-content li h5 i{position: absolute; left: 12px; top: 0; color: #C9BDBB;}
-.layim-tab-content li h5 em{padding-left: 5px; color: #999;}
-.layim-tab-content li h5[lay-type="true"] i{top: 2px;}
-.layim-tab-content li ul{display: none; margin-bottom: 10px;}
-.layui-layim-list li{position:relative; height: 42px; padding: 5px 15px 5px 60px; font-size:0; cursor:pointer;}
-.layui-layim-list li:hover{background-color: #F2F2F2; background-color: rgba(0,0,0,0.05);}
-.layui-layim-list li.layim-null{height: 20px; line-height: 20px; padding: 0; font-size: 14px; color: #999; text-align: center; cursor: default;}
-.layui-layim-list li.layim-null:hover{background: none;}
-.layui-layim-list li *{display:inline-block; *display:inline; *zoom:1; vertical-align:top; font-size: 14px;}
-.layui-layim-list li span{margin-top: 4px; max-width: 155px;}
-.layui-layim-list li img{position: absolute; left: 15px; top: 8px; width: 36px; height: 36px; border-radius: 100%;}
-.layui-layim-list li p{display: block; padding-right: 30px; line-height: 18px; font-size: 12px; color: #999;}
-.layui-layim-list li .layim-msg-status{display: none; position: absolute; right: 10px; bottom: 7px; padding: 0 5px; height: 16px; line-height: 16px; border-radius: 16px; text-align: center; font-size: 10px; background-color: #F74C31; color: #fff;}
-.layim-list-gray{-webkit-filter: grayscale(100%);  -ms-filter: grayscale(100%); filter: grayscale(100%); filter: gray;}
+.layui-layim-remark:focus {
+    background-color: #fff;
+}
 
-.layui-layim-tool{padding: 0 10px; font-size: 0;  background-color: #F6F6F6; border-radius:0 0 2px 2px;}
-.layui-layim-tool li{position: relative; width: 48px; height: 37px; line-height: 40px; text-align: center; font-size: 22px; cursor: pointer;}
-.layui-layim-tool li:active{background-color: #e2e2e2;}
-.layui-layim-tool .layim-tool-msgbox{line-height: 37px;}
-.layui-layim-tool .layim-tool-find{line-height: 38px;}
-.layui-layim-tool .layim-tool-skin{font-size: 26px;}
-.layim-tool-msgbox span{display: none; position: absolute; left: 12px; top: -12px; height: 20px; line-height: 20px; padding: 0 10px; border-radius: 2px; background-color: #33DF83; color: #fff; font-size: 12px; -webkit-animation-duration: 1s; animation-duration: 1s;}
-.layim-tool-msgbox .layer-anim-05{display: block;}
+.layui-layim-tab {
+    margin-top: 10px;
+    padding: 5px 0 9px 0;
+    font-size: 0;
+}
 
-.layui-layim-search{display: none; position: absolute; bottom: 5px; left: 5px; height: 28px; line-height: 28px;}
-.layui-layim-search input{width: 210px; padding: 0 30px 0 10px; height: 30px; line-height: 30px; border: none; border-radius: 3px; background-color: #ddd;}
-.layui-layim-search label{position: absolute; right: 6px; top: 4px; font-size: 20px; cursor: pointer; color: #333; font-weight: 400;}
+.layui-layim-tab li {
+    position: relative;
+    width: 33.33%;
+    height: 24px;
+    line-height: 24px;
+    font-size: 22px;
+    text-align: center;
+    color: #9db8d4;
+    cursor: pointer;
+}
+
+.layim-tab-two li {
+    width: 50%;
+    color: #fff;
+    font-size: 26px;
+}
+.layui-layim-tab li.layim-this{
+    /* color: #63bafd; */
+    color: #50befd;
+}
+/* .layui-layim-tab li.layim-this:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 3px;
+    background-color: #3FDD86;
+} */
+
+.layui-layim-tab li.layim-hide {
+    display: none;
+}
+
+.layui-layim-tab li:hover {
+    opacity: 0.8;
+    filter: Alpha(opacity=80);
+}
+
+.layim-tab-content {
+    display: none;
+    /*padding: 10px 0;*/
+    height: 371px;
+    overflow: hidden;
+    background-color: #fafafa;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.layim-personalinfo li:first-child{
+    padding-top: 30px;
+}
+.layim-personalinfo li{
+    padding-bottom: 20px;
+}
+.layim-personalinfo span:last-child{
+    margin-left: 15px;
+    color: #333333;
+    margin-left: 10px;
+    width: 55%;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.layim-personalinfo .layim-personalname{
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+    font-size: 14px;
+    color: #626e7a;
+}
+.layim-tab-content:hover {
+    overflow-y: auto;
+}
+
+.layim-tab-content li h5 {
+    position: relative;
+    margin-right: 15px;
+    padding-left: 30px;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.layim-tab-content li h5 * {
+    font-size: 14px;
+}
+
+.layim-tab-content li h5 span {
+    max-width: 125px;
+}
+
+.layim-tab-content li h5 i {
+    position: absolute;
+    left: 12px;
+    top: 0;
+    color: #C9BDBB;
+}
+
+.layim-tab-content li h5 em {
+    padding-left: 5px;
+    color: #999;
+}
+
+.layim-tab-content li h5[lay-type="true"] i {
+    top: 2px;
+}
+
+.layim-tab-content li ul {
+    display: none;
+    margin-bottom: 10px;
+}
+
+.layui-layim-list li {
+    position: relative;
+    height: 70px;
+    padding: 5px 15px 5px 87px;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.layui-layim-list li:hover {
+    background-color: #F2F2F2;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.layui-layim-list li.layim-null {
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    cursor: default;
+}
+
+.layui-layim-list li.layim-null:hover {
+    background: none;
+}
+
+.layui-layim-list li * {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.layui-layim-list li span {
+    margin-top: 15px;
+    max-width: 155px;
+}
+
+.layui-layim-list li img {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.layui-layim-list li p {
+    display: block;
+    padding-right: 30px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #999;
+}
+
+.layui-layim-list li .layim-msg-status {
+    display: none;
+    position: absolute;
+    right: 10px;
+    bottom: 7px;
+    padding: 0 5px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 10px;
+    background-color: #F74C31;
+    color: #fff;
+}
+
+.layim-list-gray {
+    -webkit-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.layui-layim-tool {
+    padding: 0 10px;
+    font-size: 0;
+    background-color: #F6F6F6;
+    border-radius: 0 0 2px 2px;
+}
+
+.layui-layim-tool li {
+    position: relative;
+    width: 48px;
+    height: 37px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.layui-layim-tool li:active {
+    background-color: #e2e2e2;
+}
+
+.layui-layim-tool .layim-tool-msgbox {
+    line-height: 37px;
+}
+
+.layui-layim-tool .layim-tool-find {
+    line-height: 38px;
+}
+
+.layui-layim-tool .layim-tool-skin {
+    font-size: 26px;
+}
+
+.layim-tool-msgbox span {
+    display: none;
+    position: absolute;
+    left: 12px;
+    top: -12px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    border-radius: 2px;
+    background-color: #33DF83;
+    color: #fff;
+    font-size: 12px;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.layim-tool-msgbox .layer-anim-05 {
+    display: block;
+}
+
+.layui-layim-search {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.layui-layim-search input {
+    width: 210px;
+    padding: 0 30px 0 10px;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+.layui-layim-search label {
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 400;
+}
 
 /* 换肤 */
-.layui-layim-skin{margin: 10px 0 0 10px; font-size: 0;}
-.layui-layim-skin li{margin: 0 10px 10px 0; line-height: 60px; text-align: center; background-color: #f6f6f6;}
+.layui-layim-skin {
+    margin: 10px 0 0 10px;
+    font-size: 0;
+}
+
+.layui-layim-skin li {
+    margin: 0 10px 10px 0;
+    line-height: 60px;
+    text-align: center;
+    background-color: #f6f6f6;
+}
+
 .layui-layim-skin li,
-.layui-layim-skin li img{width: 86px; height: 60px; cursor: pointer;}
-.layui-layim-skin li img:hover{opacity: 0.8; filter: Alpha(opacity=80)}
-.layui-layim-skin li cite{font-size: 14px; font-style: normal;}
+.layui-layim-skin li img {
+    width: 86px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.layui-layim-skin li img:hover {
+    opacity: 0.8;
+    filter: Alpha(opacity=80)
+}
+
+.layui-layim-skin li cite {
+    font-size: 14px;
+    font-style: normal;
+}
 
 /* 聊天面板 */
-body .layui-layim-chat{background-color: #fff;}
-body .layui-layim-chat-list{width: 760px;}
-body .layui-layim-chat .layui-layer-title{height: 80px; border-bottom: none;  background-color: #F8F8F8;
-    background-color: rgba(245,245,245,.7);}
-body .layui-layim-chat .layui-layer-content{background: none;}
+body .layui-layim-chat {
+    background-color: #fff;
+    border-radius: 10px;
+}
 
-.layim-chat-list li *
-,.layui-layim-min .layui-layer-content *{display: inline-block; *display:inline; *zoom:1; vertical-align:top; font-size: 14px;}
-.layim-chat-list{display: none; position: absolute; z-index: 1000; top: -80px; width: 200px; height: 100%; background-color: #D9D9D9; overflow: hidden; font-size: 0;}
-.layim-chat-list:hover{overflow-y: auto;}
+body .layui-layim-chat-list {
+    width: 760px;
+}
+
+body .layui-layer-title {
+   border-bottom: none;
+    background-color: #d8ebf9;
+    /* border-radius: 10px; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 1;
+    background: linear-gradient(90deg, #F95B3C, #EE2223);
+    border-radius: 8px 8px 0px 0px;
+    height: 60px;
+}
+
+body .layui-layim-chat .layui-layer-content {
+    background: none;
+}
+
+.layim-chat-list li *, .layui-layim-min .layui-layer-content * {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.layim-chat-list {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: -80px;
+    width: 200px;
+    height: 100%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    font-size: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid #e5e5e5;
+}
+
+.layim-chat-list:hover {
+    overflow-y: auto;
+}
+
 .layim-chat-list li,
-.layui-layim-min .layui-layer-content{position: relative; margin: 5px; padding: 5px 30px 5px 5px; line-height: 40px; cursor: pointer; border-radius: 3px;}
+.layui-layim-min .layui-layer-content {
+    position: relative;
+    /* margin: 5px; */
+    padding: 15px 30px 15px 30px;
+    line-height: 40px;
+    cursor: pointer;
+    /* border-radius: 3px; */
+}
+
 .layim-chat-list li img,
-.layui-layim-min .layui-layer-content img{width: 40px; height: 40px; border-radius: 100%;}
-.layui-layim-photos{cursor: crosshair;}
-.layim-chat-list li{white-space: nowrap;}
+.layui-layim-min .layui-layer-content img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.layui-layim-photos {
+    cursor: crosshair;
+}
+
+.layim-chat-list li {
+    white-space: nowrap;
+}
+
 .layim-chat-list li span,
-.layui-layim-min .layui-layer-content span{width: 100px; padding-left: 10px; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-.layim-chat-list li span cite{color: #999; padding-left: 10px;}
-.layim-chat-list li:hover{background-color: #E2E2E2;}
-.layim-chat-list li.layim-this{background-color: #F3F3F3;}
-.layim-chat-list li .layui-icon{display: none; position: absolute; right: 5px; top: 7px; color: #555; font-size: 22px;}
-.layim-chat-list li .layui-icon:hover{color: #c00;}
-.layim-chat-list li:hover .layui-icon{display: inline-block;}
+.layui-layim-min .layui-layer-content span {
+    width: 100px;
+    padding-left: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   /* //color: #fff; */
+}
 
-.layim-chat-system{margin: 10px 0; text-align: center;}
-.layim-chat-system span{display: inline-block; line-height: 30px; padding: 0 15px; border-radius: 3px; background-color: #e2e2e2; cursor: default; font-size: 14px;}
+.layim-chat-list li span cite {
+    color: #999;
+    padding-left: 10px;
+}
 
-.layim-chat{display: none; position: relative; background-color: #fff; background-color: rgba(255,255,255,.9);}
-.layim-chat-title{position: absolute; top: -80px; height: 80px;}
-.layim-chat-other{position: relative; top: 15px; left: 15px; padding-left: 60px; cursor: default;}
-.layim-chat-other img{position: absolute; left: 0; top: 0; width: 50px; height: 50px; border-radius: 100%;}
-.layim-chat-username{position: relative; top: 5px; font-size: 18px;}
-.layim-chat-status{margin-top: 6px; font-size: 14px; color: #999;}
-.layim-chat-group .layim-chat-other .layim-chat-username{cursor: pointer;}
-.layim-chat-group .layim-chat-other .layim-chat-username em{padding: 0 10px; color: #999;}
+.layim-chat-list li:hover {
+    background-color: #E2E2E2;
+}
 
-.layim-chat-main{height: 262px; padding: 15px 15px 5px 15px; overflow-x: hidden; overflow-y: auto;}
-.layim-chat-main ul li{position: relative; font-size: 0; margin-bottom: 10px; padding-left: 60px; min-height: 68px;}
+.layim-chat-list li.layim-this {
+    background-color: #F3F3F3;
+}
+
+.layim-chat-list li .layui-icon {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    color: #555;
+    font-size: 22px;
+}
+
+.layim-chat-list li .layui-icon:hover {
+    color: #c00;
+}
+
+.layim-chat-list li:hover .layui-icon {
+    display: inline-block;
+}
+
+.layim-chat-system {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.layim-chat-system span {
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 15px;
+    border-radius: 4px;
+    cursor: default;
+    font-size: 14px;
+    background: #efefef;
+    color: #808080;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.layim-chat {
+    display: none;
+    position: relative;
+    background-color: #F7F7F7;
+    /* //background-color: rgba(255, 255, 255, .9); */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.layim-chat-title {
+    position: absolute;
+    top: -80px;
+    height: 80px;
+}
+
+.layim-chat-other {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    padding-left: 60px;
+    cursor: default;
+}
+
+.layim-chat-other img {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+}
+
+.layim-chat-username {
+    position: relative;
+    top: 14px;
+    font-size: 16px;
+}
+
+.layim-chat-status {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.layim-chat-group .layim-chat-other .layim-chat-username {
+    cursor: pointer;
+}
+
+.layim-chat-group .layim-chat-other .layim-chat-username em {
+    padding: 0 10px;
+    color: #999;
+}
+
+/* 修改样式 zjj 2019-10-11 */
+.layim-chat-other .layim-chat-username {
+    font-weight: 500;
+    color: rgba(254, 248, 248, 1);
+}
+
+.layim-chat-main {
+    /*height: 262px;*/
+    height: 317px;
+    padding: 10px 10px 10px 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.layim-chat-main > ul{
+    padding-top: 15px;
+}
+.layim-chat-main ul li {
+    position: relative;
+    font-size: 0;
+    margin-bottom: 54px;
+    padding-left: 50px;
+    min-height: 36px;
+}
+
+.layim-chat-main ul li:last-child {
+    margin-bottom: 40px !important;
+}
+
 .layim-chat-user,
-.layim-chat-text{display: inline-block; *display:inline; *zoom:1; vertical-align:top; font-size: 14px;}
-.layim-chat-user{position: absolute; left: 3px;}
-.layim-chat-user img{width: 40px; height: 40px; border-radius: 100%;}
-.layim-chat-user cite{position: absolute; left: 60px; top: -2px; width: 500px; line-height: 24px; font-size: 12px; white-space: nowrap; color: #999; text-align: left; font-style: normal;}
-.layim-chat-user cite i{padding-left: 15px; font-style: normal;}
-.layim-chat-text{position: relative; line-height: 22px; margin-top: 25px; padding: 8px 15px; background-color: #e2e2e2; border-radius: 3px; color: #333; word-break: break-all;}
-.layim-chat-text:after{content: ''; position: absolute; left: -10px; top: 13px; width: 0; height: 0; border-style: dashed; border-color:transparent; overflow:hidden; border-width: 10px; border-top-style: solid; border-top-color: #e2e2e2;}
-.layim-chat-text{max-width: 462px\0;}
-.layim-chat-text a{color: #33DF83;}
-.layim-chat-text img{ max-width: 100%; vertical-align: middle;}
+.layim-chat-text {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.layim-chat-user {
+    position: absolute;
+    left: 3px;
+}
+
+.layim-chat-user img {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+}
+
+.layim-chat-user cite {
+    position: absolute;
+    left: 46px;
+    top: -23px;
+    width: 471px;
+    line-height: 24px;
+    font-size: 12px;
+    white-space: nowrap;
+    color: #8590a5;
+    text-align: center;
+    font-style: normal;
+}
+
+.layim-chat-user cite i {
+    /*padding-left: 15px;*/
+    font-style: normal;
+    display: block;
+    position: relative;
+    top: -30px;
+}
+.layim-chat-user cite span.user-name {
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+.layim-chat-text {
+    position: relative;
+    line-height: 22px;
+    /*margin-top: 25px;*/
+    padding: 8px 15px;
+	background-color: #fff;
+    /* //background-color: #efefef; */
+    border-radius: 3px;
+    color: #222;
+    word-break: break-all;
+}
+
+.layim-chat-text:after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 17px;
+    width: 0;
+    height: 0;
+    border-style: dashed;
+    border-color: transparent;
+    overflow: hidden;
+    border-width: 6px;
+    border-top-style: solid;
+	border-top-color: #fff;
+    /* //border-top-color: #efefef; */
+    /*display: none;*/
+}
+.layim-chat-text:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-style: dashed;
+    border-color: transparent;
+    overflow: hidden;
+    border-width: 6px;
+    border-bottom-style: solid;
+	border-bottom-color: #fff;
+    /* //border-bottom-color: #efefef; */
+}
+.layim-chat-text {
+    /*max-width: 462px;*/
+    max-width: 441px;
+}
+
+.layim-chat-text a {
+    /*color: #33DF83;*/
+    color: #0087ef;
+    letter-spacing: .5px;
+}
+
+.layim-chat-text img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
 .layui-layim-file,
-.layim-chat-text .layui-layim-file{display: block; text-align: center; }
-.layim-chat-text .layui-layim-file{color: #333;}
-.layui-layim-file:hover{opacity: 0.9}
-.layui-layim-file i{font-size: 80px; line-height: 80px;}
-.layui-layim-file cite{display: block; line-height: 20px; font-size: 14px;}
-.layui-layim-audio{text-align: center; cursor: pointer;}
-.layui-layim-audio .layui-icon{position: relative; top: 5px; font-size: 24px;}
-.layui-layim-audio p{margin-top: 3px;}
-.layui-layim-video{width: 120px; height: 80px; line-height: 80px; background-color: #333; text-align: center; border-radius: 3px;}
-.layui-layim-video .layui-icon{font-size: 36px; cursor: pointer; color: #fff;}
-.layim-chat-main ul .layim-chat-system{min-height: 0; padding: 0;}
+.layim-chat-text .layui-layim-file {
+    display: block;
+    text-align: center;
+}
 
-.layim-chat-main ul .layim-chat-mine{text-align: right; padding-left: 0; padding-right: 60px;}
-.layim-chat-mine .layim-chat-user{left: auto; right: 3px;}
-.layim-chat-mine .layim-chat-user cite{left: auto; right: 60px; text-align: right;}
-.layim-chat-mine .layim-chat-user cite i{padding-left: 0; padding-right: 15px;}
-.layim-chat-mine .layim-chat-text{margin-left: 0; text-align: left; background-color: #5FB878; color: #fff;}
-.layim-chat-mine .layim-chat-text:after{left: auto; right: -10px; border-top-color: #5FB878;}
-.layim-chat-mine .layim-chat-text a{color: #fff;}
+.layim-chat-text .layui-layim-file {
+    color: #333;
+}
 
-.layim-chat-footer{border-top: 1px solid #F1F1F1;}
-.layim-chat-tool{position: relative; padding: 0 8px; height: 38px; line-height: 38px; font-size: 0;}
-.layim-chat-tool span{position: relative; margin: 0 10px; display: inline-block; *display:inline; *zoom:1; vertical-align:top; font-size: 24px; cursor: pointer;}
-.layim-chat-tool .layim-tool-log{position: absolute; right: 5px; font-size: 14px; }
-.layim-tool-log i{position: relative; top: 2px; margin-right: 5px; font-size: 20px; color: #999}
-.layim-tool-image input{position: absolute; font-size: 0; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.01; filter: Alpha(opacity=1); cursor: pointer;}
+.layui-layim-file:hover {
+    opacity: 0.9
+}
+
+.layui-layim-file i {
+    font-size: 80px;
+    line-height: 80px;
+}
+
+.layui-layim-file cite {
+    display: block;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.layui-layim-audio {
+    text-align: center;
+    cursor: pointer;
+}
+
+.layui-layim-audio .layui-icon {
+    position: relative;
+    top: 5px;
+    font-size: 24px;
+}
+
+.layui-layim-audio p {
+    margin-top: 3px;
+}
+
+.layui-layim-video {
+    width: 120px;
+    height: 80px;
+    line-height: 80px;
+    background-color: #333;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.layui-layim-video .layui-icon {
+    font-size: 36px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.layim-chat-main ul .layim-chat-system {
+    min-height: 0;
+    padding: 0;
+}
+
+.layim-chat-main ul .layim-chat-mine {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 50px;
+}
+
+.layim-chat-mine .layim-chat-user {
+    left: auto;
+    right: 3px;
+}
+
+.layim-chat-mine .layim-chat-user cite {
+    left: auto;
+    right: 46px;
+    /*text-align: right;*/
+}
+
+.layim-chat-mine .layim-chat-user cite i {
+    padding-left: 0;
+    /*padding-right: 15px;*/
+}
+.layim-chat-mine .layim-chat-user cite span.mine-name {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.layim-chat-mine .layim-chat-text {
+    margin-left: 0;
+    text-align: left;
+    background-color: #e0f2ff;
+    color: #222;
+}
+
+.layim-chat-mine .layim-chat-text:before {
+    left: auto;
+    right: -6px;
+    border-bottom-color: #def2ff;
+}
+.layim-chat-mine .layim-chat-text:after {
+    left: auto;
+    right: -6px;
+    border-top-color: #def2ff;
+}
+.layim-chat-mine .layim-chat-text a {
+    color: #fff;
+}
+
+.layim-chat-footer {
+    border-top: 1px solid #e5e5e5;
+}
+
+.layim-chat-tool {
+    position: relative;
+    padding: 0 8px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 0;
+}
+
+.layim-chat-tool span {
+    position: relative;
+    margin: 0 10px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 21px;
+    cursor: pointer;
+    color: #8590a5;
+    line-height: 38px !important;
+}
+
+.layim-chat-tool .layim-tool-log {
+    position: absolute;
+    /* right: 5px; */
+    font-size: 14px;
+}
+
+.layim-tool-log i {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+    font-size: 20px;
+    color: #999
+}
+
+.layim-tool-image input {
+    position: absolute;
+    font-size: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.01;
+    filter: Alpha(opacity=1);
+    cursor: pointer;
+}
 
 /* 表情 */
-body .layui-layim-face{margin: 10px 0 0 -18px; border: none; background: none;}
-body .layui-layim-face  .layui-layer-content{padding:0; background-color:#fff; color:#666; box-shadow:none}
-.layui-layim-face .layui-layer-TipsG{display:none;}
-.layui-layim-face ul{position:relative; width:372px; padding:10px; border:1px solid #D9D9D9; background-color:#fff; box-shadow: 0 0 20px rgba(0,0,0,.2);}
-.layui-layim-face ul li{cursor: pointer; float: left; border: 1px solid #e8e8e8; height: 22px; width: 26px; overflow: hidden; margin: -1px 0 0 -1px; padding: 4px 2px; text-align: center;}
-.layui-layim-face ul li:hover{position: relative; z-index: 2; border: 1px solid #eb7350; background: #fff9ec;}
+body .layui-layim-face {
+    margin: 10px 0 0 -18px;
+    border: none;
+    background: none;
+}
+
+body .layui-layim-face .layui-layer-content {
+    padding: 0;
+    background-color: #fff;
+    color: #666;
+    box-shadow: none
+}
+
+.layui-layim-face .layui-layer-TipsG {
+    display: none;
+}
+
+.layui-layim-face ul {
+    position: relative;
+    width: 372px;
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
+.layui-layim-face ul li {
+    cursor: pointer;
+    float: left;
+    border: 1px solid #e8e8e8;
+    height: 22px;
+    width: 26px;
+    overflow: hidden;
+    margin: -1px 0 0 -1px;
+    padding: 4px 2px;
+    text-align: center;
+	box-sizing: unset;
+}
+
+.layui-layim-face ul li:hover {
+    position: relative;
+    z-index: 2;
+    border: 1px solid #eb7350;
+    background: #fff9ec;
+}
 
 /* 输入框 */
-.layim-chat-textarea{margin-left: 10px;}
-.layim-chat-textarea textarea{display: block; width: 100%; padding: 5px 0 0 0; height: 68px; line-height: 20px; border: none; overflow: auto; resize: none; background: none;}
-.layim-chat-textarea textarea:focus{outline: 0;}
+.layim-chat-textarea {
+    margin-left: 17px;
+	font-size: 14px;
+}
 
-.layim-chat-bottom{position: relative; height: 46px;}
-.layim-chat-send{position: absolute; right: 15px; top: 3px; height: 32px; line-height: 32px; font-size: 0; cursor: pointer;}
-.layim-chat-send span{display: inline-block; *display:inline; *zoom:1; vertical-align:top; font-size: 14px;}
-.layim-chat-send span{line-height: 32px; margin-left: 5px; padding: 0 20px; background-color: #5FB878; color: #fff; border-radius: 3px;}
-.layim-chat-send span:hover{background-color: #69BC80;}
-.layim-chat-send span:active{background-color: #59B573}
-.layim-chat-send .layim-send-btn{border-radius: 3px 0 0 3px;}
-.layim-chat-send .layim-send-set{position: relative; width: 30px; height: 32px; margin-left: 0; padding: 0; border-left: 1px solid #85C998; border-radius: 0 3px 3px 0;}
-.layim-send-set .layui-edge{position: absolute; top: 14px; left: 9px; border-width: 6px; border-top-style: solid; border-top-color: #fff;}
-.layim-chat-send .layim-menu-box{left: auto; right: 0; top: 33px; width: 180px; padding: 10px 0;}
-.layim-chat-send .layim-menu-box li{padding-right: 15px; line-height: 28px;}
+.layim-chat-textarea textarea {
+    display: block;
+    width: 100%;
+    padding: 5px 12px 0 0;
+    height: 80px;
+    line-height: 20px;
+    border: none;
+    overflow: auto;
+    resize: none;
+    background: none;
+    box-sizing: border-box;
+}
+
+.layim-chat-textarea textarea:focus {
+    outline: 0;
+}
+
+.layim-chat-bottom {
+    position: relative;
+    height: 46px;
+}
+
+.layim-chat-send {
+    position: absolute;
+    right: 15px;
+    top: 3px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.layim-chat-send span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.layim-chat-send span {
+    line-height: 30px;
+    margin-left: 5px;
+    padding: 0 20px;
+    background-color: #FBA8AA;
+    color: #fff;
+    border-radius: 4px;
+    border: solid 1px #FBA8AA;
+}
+
+ .layim-chat-send span:hover {
+    background-color: #F75156;
+    color: #fff;
+} 
+
+.layim-chat-send span:active {
+    background-color: #fff;
+}
+
+.layim-chat-send .layim-send-btn {
+    border-radius: 4px;
+}
+
+.layim-chat-send .layim-send-set {
+    position: relative;
+    width: 30px;
+    height: 32px;
+    margin-left: 0;
+    padding: 0;
+    border-left: 1px solid #85C998;
+    border-radius: 0 3px 3px 0;
+    display: none;
+}
+
+.layim-send-set .layui-edge {
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    border-width: 6px;
+    border-top-style: solid;
+    border-top-color: #fff;
+}
+
+.layim-chat-send .layim-menu-box {
+    left: auto;
+    right: 0;
+    top: 33px;
+    width: 180px;
+    padding: 10px 0;
+}
+
+.layim-chat-send .layim-menu-box li {
+    padding-right: 15px;
+    line-height: 28px;
+}
 
 /* 最小化 */
-body .layui-layim-min{border: 1px solid #D9D9D9;}
-.layui-layim-min .layui-layer-content{margin: 0 5px; padding: 5px 10px; white-space: nowrap;}
-.layui-layim-close .layui-layer-content span {width: auto; max-width: 120px;}
+body .layui-layim-min {
+    border: 1px solid #D9D9D9;
+}
 
+.layui-layim-min .layui-layer-content {
+    margin: 0 5px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+.layui-layim-close .layui-layer-content span {
+    width: auto;
+    max-width: 120px;
+}
 
 /* 查看群员 */
-body .layui-layim-members{ margin: 25px 0 0 -75px; border: none; background: none;}
-body .layui-layim-members  .layui-layer-content{padding:0; background: none; color:#666; box-shadow:none}
-.layui-layim-members .layui-layer-TipsG{display:none;}
-.layui-layim-members ul{position:relative; width: 578px; height: 200px; padding: 10px 10px 0 10px; border:1px solid #D9D9D9; background-color:#fff; background-color: rgba(255,255,255,.9); box-shadow: none; overflow: hidden;}
-.layui-layim-members ul:hover{overflow: auto;}
-.layui-layim-members ul{font-size: 0;}
+body .layui-layim-members {
+    margin: 25px 0 0 -75px;
+    border: none;
+    background: none;
+}
+
+body .layui-layim-members .layui-layer-content {
+    padding: 0;
+    background: none;
+    color: #666;
+    box-shadow: none
+}
+
+.layui-layim-members .layui-layer-TipsG {
+    display: none;
+}
+
+.layui-layim-members ul {
+    position: relative;
+    width: 578px;
+    height: 200px;
+    padding: 10px 10px 0 10px;
+    border: 1px solid #D9D9D9;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.layui-layim-members ul:hover {
+    overflow: auto;
+}
+
+.layui-layim-members ul {
+    font-size: 0;
+}
+
 .layui-layim-members li,
 .layim-add-img,
-.layim-add-remark{display: inline-block; *display:inline; *zoom:1; vertical-align: top; font-size: 14px;}
-.layui-layim-members li{width: 112px; margin: 10px 0; text-align: center}
-.layui-layim-members li a{position: relative; display: inline-block;  max-width: 100%;}
-.layui-layim-members li a:after{content: ''; position: absolute; width: 46px; height: 46px; left: 50%; margin-left: -23px; top: 0;  border: 1px solid #eee; border-color: rgba(0,0,0,.1);  border-radius: 100%;}
-.layui-layim-members li img{width: 48px; height: 48px; border-radius: 100%;}
-.layui-layim-members li:hover{opacity: 0.9;}
-.layui-layim-members li a cite{display: block; padding: 0 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.layim-add-remark {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    font-size: 14px;
+}
+
+.layui-layim-members li {
+    width: 112px;
+    margin: 10px 0;
+    text-align: center
+}
+
+.layui-layim-members li a {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.layui-layim-members li a:after {
+    content: '';
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    left: 50%;
+    margin-left: -23px;
+    top: 0;
+    border: 1px solid #eee;
+    border-color: rgba(0, 0, 0, .1);
+    border-radius: 100%;
+}
+
+.layui-layim-members li img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+
+.layui-layim-members li:hover {
+    opacity: 0.9;
+}
+
+.layui-layim-members li a cite {
+    display: block;
+    padding: 0 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 /* 右键面板 */
-body .layui-layim-contextmenu{margin: 70px 0 0 30px; width: 200px; padding: 5px 0; border: 1px solid #ccc; background: #fff; border-radius: 0; box-shadow: 0 0 5px rgba(0,0,0,.2);}
-body .layui-layim-contextmenu  .layui-layer-content{padding:0; background-color:#fff; color: #333; font-size: 14px; box-shadow: none}
-.layui-layim-contextmenu .layui-layer-TipsG{display:none;}
-.layui-layim-contextmenu li{padding: 0 15px 0 35px; cursor: pointer; line-height: 30px;}
-.layui-layim-contextmenu li:hover{background-color: #F2F2F2;}
+body .layui-layim-contextmenu {
+    margin: 70px 0 0 30px;
+    width: 200px;
+    padding: 5px 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+
+body .layui-layim-contextmenu .layui-layer-content {
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    box-shadow: none
+}
+
+.layui-layim-contextmenu .layui-layer-TipsG {
+    display: none;
+}
+
+.layui-layim-contextmenu li {
+    padding: 0 15px 0 35px;
+    cursor: pointer;
+    line-height: 30px;
+}
+
+.layui-layim-contextmenu li:hover {
+    background-color: #F2F2F2;
+}
 
 /* 添加面板 */
-.layim-add-box{margin: 15px; font-size: 0;}
-.layim-add-img{width: 100px; margin-right: 20px; text-align: center;}
-.layim-add-img img{width: 100px; height: 100px; margin-bottom: 10px;}
-.layim-add-remark{width: 280px;}
-.layim-add-remark p{margin-bottom: 10px;}
-.layim-add-remark .layui-select{width: 100%; margin-bottom: 10px;}
-.layim-add-remark .layui-textarea{height: 80px; min-height: 80px; resize: none;}
+.layim-add-box {
+    margin: 15px;
+    font-size: 0;
+}
+
+.layim-add-img {
+    width: 100px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.layim-add-img img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.layim-add-remark {
+    width: 280px;
+}
+
+.layim-add-remark p {
+    margin-bottom: 10px;
+}
+
+.layim-add-remark .layui-select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.layim-add-remark .layui-textarea {
+    height: 80px;
+    min-height: 80px;
+    resize: none;
+}
 
 /* 排除与bootstrap的冲突 */
 .layui-layim-tab,
 .layim-tab-content,
-.layui-layim-face ul{margin-bottom: 0;}
-.layim-tab-content li h5{margin-top: 0; margin-bottom: 0;}
-,.layui-layim-face img{vertical-align: bottom;}
-.layim-chat-other span{color: #444;}
-.layim-chat-other span cite{padding: 0 15px; color: #999;}
-.layim-chat-other:hover{text-decoration: none;}
+.layui-layim-face ul {
+    margin-bottom: 0;
+}
+
+.layim-tab-content li h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.layui-layim-face img {
+    vertical-align: bottom;
+}
+
+.layim-chat-other span {
+    color: #000;
+}
+
+.layim-chat-other span cite {
+    padding: 0 15px;
+    color: #999;
+}
+
+.layim-chat-other:hover {
+    text-decoration: none;
+}
+#LAY_view {
+    padding-top: 20px;
+}
+
+button.transfer-btn {
+    outline: none;
+    color: #fff;
+    border-radius: 2px;
+    margin: 0 8px;
+    padding: 0 14px;
+    height: 24px;
+    border-radius: 24px;
+    border: solid 1px #bbe0fd;
+    color: #0087ef;
+    margin-bottom: 16px;
+    background: #f5f6f8;
+    cursor: pointer;
+}
+button.appoint-transfer-btn2 {
+    outline: none;
+    color: #fff;
+    border-radius: 2px;
+    margin: 0 8px;
+    padding: 0 14px;
+    height: 24px;
+    border-radius: 24px;
+    border: solid 1px #bbe0fd;
+    color: #0087ef;
+    margin-bottom: 16px;
+    background: #f5f6f8;
+	line-height: 10px;
+}
+.transfer-css {
+    height: 36px;
+    line-height: 32px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 13px;
+}
+
+.layim-chat-text a>b {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #d2d2d2;;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.layim-chat-user cite i.chatlog-time {
+    /* top: -24px; */
+    top: -45px;
+    left: 88px;
+}
+.layim-chat-mine .layim-chat-user cite i.chatlog-time {
+    text-align: right;
+    padding-right: 178px;
+}
+
+.layim-chat-mine .layim-chat-user cite .chatlog-name {
+    text-align: right;
+    float: right;
+    position: absolute;
+    top: -4px;
+    right: 0;
+}
+
+cite.chatlog {
+    text-align: left;
+}
 
 
 
+.icon-dianzan:before {
+    content: "\e823";
+  }
 
+  .icon-dianzan-copy:before {
+    content: "\e824";
+  }
+
+  /* .icon-kehufuwukefu:before {
+    content: "\e698";
+  } */
+  .layim-tool-transfer:before {
+    content: "\e698";
+  }
+
+  .layim-tool-chatlog:before {
+    content: "\e710";
+  }
+  /* 未接入 */
+  .colorc0c7d4 {
+    color: #c0c7d4 !important;
+  }
+
+  /* 已接入 */
+  .color8590a5 {
+    color: #8590a5 !important;
+  }
+
+  .layim-tool-transfer{
+      font-size: 23px !important;
+      line-height: 38px !important;
+  }
+  .layim-chat-textarea textarea:focus{
+      border-color: none;
+      outline: none;
+      box-shadow: none;
+  }
+  .layim-chat-textarea textarea{
+    box-shadow: none;
+  }
+  .search-no-question p a{
+    text-align: left;
+    color: #0030ff;
+
+    text-decoration: underline;
+    padding-top: 11px;
+    cursor: pointer;
+
+
+
+	border: 1px solid #D9D9D9;
+    border-color: rgba(0, 0, 0, .05);
+    background-repeat: no-repeat;
+    background: red;
+    
+    color: #333;
+    border-radius: 5px;
+  }
+	.search-no-question p a:hover{
+	 background: red;
+	}
+  .question-resolve{
+      float: right;
+      cursor: pointer;
+    padding-top: 5px;
+    color: #919aa3;
+
+  }
+  .padding-l-30{
+    padding-left: 30px;
+  }
+
+  .question-resolve.selected{
+    color:#57a8fe;
+}
+.question-hasuseful{
+    float: right;
+    cursor: pointer;
+    padding-top: 5px;
+    color: #919aa3;
+}
+.question-hasuseful.selected{
+    color:#57a8fe;
+}
+button.transfer-btn:disabled{
+    opacity: .4;
+}
+.comment-dialog{
+    width: 84%;
+    top: 183px;
+    left: 13%;
+}
+
+/* 默认推送样式 */
+
+/* .ques-def-resolve {
+    float: right;
+    cursor: pointer;
+    padding-top: 5px;
+    color: #919aa3;
+}
+
+.ques-def-resolve-unuse{
+    float: right;
+    cursor: pointer;
+    padding-top: 5px;
+    color: #919aa3;
+}
+
+.ques-def-resolve-unuse.selected {
+    color: #57a8fe;
+}
+
+
+.ques-def-hasuseful-unuse{
+    float: right;
+    cursor: pointer;
+    padding-top: 5px;
+    color: #919aa3;
+}
+
+.ques-def-hasuseful{
+    float: right;
+    cursor: pointer;
+    padding-top: 5px;
+    color: #919aa3;
+}
+
+.ques-def-hasuseful-unuse.selected {
+    color: #57a8fe;
+} */
+
+/* 默认推送样式 */
+
+/* 新版聊天样式 */
+
+.transfer-css {
+    height: 36px;
+    line-height: 32px;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/*** update 韩红薯 */
+
+/* layim 修改默认样式 */
+.new-comment-dialog,.new-comment-dialog-all {
+    padding:20px !important;
+    padding-bottom:0 !important;
+    background: #fff !important;
+}
+.new-comment-dialog .new-comment-title,
+.new-comment-dialog-all .new-comment-title {
+    padding:0;
+    margin:0;
+    font-size:16px;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+    line-height:24px;
+    margin-bottom:5px;
+}
+/* .new-comment-dialog .layui-form-item,
+.new-comment-dialog-all .layui-form-item {
+    padding:0;
+} */
+.new-comment-dialog .layui-form-label,
+.new-comment-dialog-all .layui-form-label {
+    padding:9px 0;
+    text-align:left;
+}
+.new-comment-dialog .layui-input-block,
+.new-comment-dialog-all .layui-input-block {
+    margin:0;
+}
+.no-bottom-margin {
+    margin-bottom:0 !important;
+}
+.new-comment-dialog .layui-inline,
+.new-comment-dialog .layui-input-block,
+.new-comment-dialog-all .layui-inline,
+.new-comment-dialog-all .layui-input-block {
+    display: flex;
+    align-items: center;
+}
+.new-comment-dialog .layui-inline .layui-rate,
+.new-comment-dialog-all .layui-inline .layui-rate {    
+    flex:1;
+    max-width:200px;
+    display: flex;
+    padding-left:0;
+}
+.new-comment-dialog .layui-inline .new-layui-rate li,
+.new-comment-dialog-all .layui-inline .new-layui-rate li {
+    margin:0 !important;
+    padding:0 5px;
+}
+.new-comment-dialog .new-comment-wrapper .layui-rate li i.layui-icon-rate:before,
+.new-comment-dialog-all .new-comment-wrapper-all .layui-rate li i.layui-icon-rate:before {
+    display: inline-block;
+    content: "";
+    background: url('../layer/default/star_default.png') center / 22px no-repeat;
+    width:22px;
+    height:22px;
+    /* color:#D4D5D7; */
+}
+.new-comment-dialog .new-comment-wrapper .layui-rate li i.layui-icon-rate-solid:before,
+.new-comment-dialog-all .new-comment-wrapper-all .layui-rate li i.layui-icon-rate-solid:before {
+    display: inline-block;
+    content: "";
+    background: url('../layer/default/star_active.png') center / 22px no-repeat;
+    width:22px;
+    height:22px;
+}
+.new-comment-dialog .new-comment-wrapper .layui-inline .new-evaluate,
+.new-comment-dialog-all .new-comment-wrapper-all .layui-inline .new-evaluate-all     {
+    color:#FB8486;
+    font-size:16px;
+    margin-left:10px;
+}
+.new-comment-dialog .new-comment-wrapper .layui-form-radio > i:hover,
+.new-comment-dialog .new-comment-wrapper .layui-form-radioed > i,
+.new-comment-dialog-all .new-comment-wrapper-all .layui-form-radio > i:hover,
+.new-comment-dialog-all .new-comment-wrapper-all .layui-form-radioed > i{
+    color:#FB8486;
+}
+.new-comment-dialog .solve-buttons,
+.new-comment-dialog-all .solve-buttons {
+    display:flex;
+    width:100%;
+    margin-bottom:10px;
+}
+
+.new-comment-dialog .solve-buttons .solve-buttons0,
+.new-comment-dialog .solve-buttons .solve-buttons1 {
+    height:36px;
+    line-height:36px;
+    border:1px solid #FB8486;
+    border-radius:18px;
+    margin:5px 30px;
+    flex:1;
+    text-align: center;
+    cursor: pointer;
+}
+
+.new-comment-dialog-all .message-buttons {
+    padding-top:10px;
+    position: relative;
+}
+.new-comment-dialog-all .message-buttons:before {
+    position: absolute;
+    content:'';
+    width:600px;
+    height:1px;
+    left:0;
+    top:0;
+    background: #E5E5E5;
+}
+.new-comment-dialog-all .message-buttons .message-btn0,
+.new-comment-dialog-all .message-buttons .message-btn1 {
+    height: 28px;
+    line-height: 28px;
+    margin: 5px 5px 0;
+    padding: 0 15px;
+    border: 1px solid #dedede;
+    background-color: #fff;
+    color: #333;
+    border-radius: 2px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.new-comment-dialog .solve-buttons .solve-buttons0,
+.new-comment-dialog-all .solve-buttons .solve-buttons0  {
+    background: #fff;
+    color:#FB8486;
+}
+.new-comment-dialog .solve-buttons .solve-buttons1,
+.new-comment-dialog-all .solve-buttons .solve-buttons1 {
+    background: #FB8486;
+    color:#fff;
+}
+.new-comment-dialog .solve-buttons .solve-buttons1.btn-unuse,
+.new-comment-dialog-all .solve-buttons .solve-buttons1.btn-unuse,
+.new-comment-dialog .solve-buttons .solve-buttons0.btn-unuse,
+.new-comment-dialog-all .solve-buttons .solve-buttons0.btn-unuse {
+    background: #fff;
+    color:#C9BDBB;
+    border:1px solid #C9BDBB;
+    cursor: default;
+}
+ 
+.new-comment-dialog-all .solve-tag-box {
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:0;
+}
+.new-comment-dialog-all .solve-tag-box .solve-li-item {
+    padding:0 10px;
+    font-size:14px;
+    color:#333333;
+    border:1px solid rgba(217,217,217,1);
+    border-radius:15px;
+    height:30px;
+    line-height:30px;
+    box-sizing: border-box;
+    cursor:pointer;
+    margin:0 10px 10px;
+
+}
+.new-comment-dialog-all .solve-tag-box .solve-li-item:hover {
+    color:#FB8486;
+    border-color:#FB8486;
+}
+.new-comment-dialog-all .solve-tag-box .solve-li-item-selected  {
+    color:#FB8486;
+    border-color:#FB8486;
+}
+
+
+/* 新版聊天样式更改 */
+.layim-chat-main {
+    padding-bottom:50px;
+}
+.layim-chat-main .layim-time {
+    top:0;
+    left:0px;
+    position: relative;
+    display: block;
+    margin-bottom:20px;
+}
+.layim-chat-main .layim-chat-mine {
+    margin-bottom:30px;
+}
+.layim-chat-main .layim-chat-mine .layim-time {
+    left:50px;
+}
+.layim-chat-main .layui-layer-record-btn {
+    width:146px;
+    line-height:40px;
+    display: block;
+    margin:0 auto 8px;
+    font-size:14px;
+    position: relative;
+}
+.layim-chat-main .layui-layer-record-btn::before,
+.layim-chat-main .layui-layer-record-btn::after {
+    position: absolute;
+    content: '';
+    width:100px;
+    height:1px;
+    background: #999BA1;
+    top:50%;
+    transform: translateY(-50%);
+}
+.layim-chat-main .layui-layer-record-btn::before {
+    left:-120px;
+}
+.layim-chat-main .layui-layer-record-btn::after {
+    right:-120px
+}
+.layui-layim-chat .layui-layer-setwin .layui-layer-voice{
+    background:url('../layer/default/voice_on.png') center / 19px no-repeat;
+}
+.layui-layim-chat .layui-layer-setwin .layui-layer-voice-none {
+    background:url('../layer/default/voice_none.png') center / 19px no-repeat;
+}
+.layim-chat-footer {
+    position: relative;
+}
+.layim-chat-footer .float-btns {
+    position: absolute;
+    top:-40px;
+    left:0;
+    width:100%;
+    height: 40px;
+    box-sizing:border-box;
+    padding:0 0 0 20px;
+    /* background: rgba(0,0,0,.1); */
+    display: flex;
+}
+.layim-chat-footer .float-btns .float-btn-item {
+    min-width:72px;
+    height:30px;
+    padding:0 13px;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 0px 15px 0px rgba(255,86,91,0.34);
+    border-radius:15px;
+    font-size:14px;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+    line-height:30px;
+    text-align: center;
+    margin-right:20px;
+    cursor: pointer;
+}
+.layim-chat-main .layim-chat-text {
+    border:1px solid rgba(229,229,229,1);
+    border-radius:6px;
+}
+/* 猜你想问 1.默认推送 2.机器人回答 */
+.layim-chat-main .layim-chat-text-guess-ask::before,
+.layim-chat-main .layim-chat-text-guess-ask::after,
+.layim-chat-main .layim-chat-text-center-ele::before,
+.layim-chat-main .layim-chat-text-center-ele:after {
+    display:none;
+}
+.layim-chat-main .layim-chat-text-guess-ask {
+    margin-top:-40px;
+}
+.layim-chat-main .layim-chat-text-center-ele {
+    min-width:500px;
+    max-width: 800px;
+    width:50%;
+    margin: -40px auto 0;
+    left:50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+.layim-chat-main .layim-chat-text-center-ele.no-margin {
+    margin: 0 auto;
+    border: 1px solid rgba(229,229,229,1);
+    border-radius: 5px;
+    cursor: default;
+}
+
+.layim-chat-main .layim-chat-text-guess-ask a {
+    display:flex;
+    align-items: center;
+    line-height:20px;
+    margin:6px 0 12px;
+    color: #8590A5;
+}
+.layim-chat-main .layim-chat-text-guess-ask a>b {
+    min-width: 8px;
+    min-height:8px;
+}
+.layim-chat-main .layim-chat-text-guess-ask a:hover {
+    color:#31A6F8;
+}
+.layim-chat-main .layim-chat-text-guess-ask a:last-of-type {
+    margin-bottom:10px;
+}
+/* 机器人回答各种情况 */
+.layim-chat-main .chat-find-noAnswer {
+    position: relative;
+}
+.layim-chat-main .chat-find-noAnswer .search-no-question {
+    position: absolute;
+    bottom:-50px;
+    left:-20px;
+    width:82px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(229,229,229,1);
+    border-radius:15px;
+    color:#333;
+}
+.layim-chat-main .question-topic-box {
+    display:flex;
+    flex-direction: column;
+}
+.layim-chat-main .question-topic-box  .question-topic {
+    color:#8590A5;
+    margin:3px 0;
+}
+.layim-chat-main .question-topic-box  .question-topic:hover {
+    color:#0087ef;
+}
+.question-resolve-btns 
+
+/* 服务单列表和详情 */
+
+.layim-chat-main .layim-chat-text-center-ele .service-list-center {
+    text-align: center;
+}
+.layim-chat-text-center-ele .service-list-center .service-list-center-flex {
+    display: flex;
+}
+.layim-chat-text-center-ele .service-list-center .service-list-center-flex span {
+    min-width:100px;
+}
+.layim-chat-text-center-ele .service-list-center .service-list-center-flex p {
+    margin:0;
+    text-align: left;
+}
+.layim-chat-text-center-ele .service-list-center .service-list-center-time {
+    text-align: right;
+}
+.layim-chat-main .check-list-box {
+    position: relative;
+}
+.layim-chat-main .check-list-box p {
+    margin:0;
+}
+.layim-chat-main .check-list-box .check-list-detail {
+    position: absolute;
+    line-height: 30px;
+    padding:0 8px;
+    background: #D9D9D9;
+    border-radius: 8px;
+    border:1px solid #000;
+    cursor: pointer;
+    bottom:-50px;
+    left:-15px;
+}
+.layim-chat-main .check-list-box .check-list-detail.btn-unuse {
+    cursor: default;
+}
+.layim-chat-main .servise-item-box {
+    cursor: pointer;
+}
+.layim-chat-main .servise-item-box .servise-item-title {
+    font-size: 16px;
+    font-weight:600;
+}
+.layim-chat-main .servise-item-box .servise-item-des {
+    display: flex;
+}
+.layim-chat-main .servise-item-box .servise-item-des span {
+    min-width:60px;
+}
+.layim-chat-main .servise-item-box .servise-item-time {
+    text-align: right;
+    font-size:12px;
+    color:#C9BDBB;
+}
+
+/* 点击默认推送返回答案样式  */
+.layim-chat-main .ques-resolve-box {
+    position: relative;
+}
+.layim-chat-main .ques-resolve-box .ques-def-resolve-btns,
+.layim-chat-main .ques-resolve-box .question-resolve-btns {
+    position: absolute;
+    right:-60px;
+    top:50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:30px;
+}
+.layim-chat-main .ques-def-resolve,
+.layim-chat-main .question-resolve {
+    margin:0;
+    padding:0;
+    width:30px;
+    height:20px;
+    border:1px solid rgba(229,229,229,1);
+    border-radius:10px;
+    cursor: pointer;
+    background: rgba(255,255,255,1) url('../layer/default/resolve.png') center / 14px no-repeat;
+}
+.layim-chat-main .ques-def-resolve.question-btn-unuse,
+.layim-chat-main .question-resolve.question-btn-unuse {
+    cursor: default;
+}
+.layim-chat-main .ques-def-resolve-btns .ques-def-resolve:nth-of-type(2),
+.layim-chat-main .question-resolve-btns .question-resolve:nth-of-type(2) {
+    background: rgba(255,255,255,1) url('../layer/default/resolve.png') center / 14px no-repeat;
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+.layim-chat-main .resolve-selected {
+    background: rgba(255,255,255,1) url('../layer/default/resolve_up.png') center / 14px no-repeat;
+}
+.layim-chat-main .resolve-selected.ques-def-resolve:nth-of-type(2),
+.layim-chat-main .resolve-selected.question-resolve:nth-of-type(2) { 
+    background: rgba(255,255,255,1) url('../layer/default/resolve_down.png') center / 14px no-repeat;
+}
+
+.layim-chat-main .ques-def-resolve:nth-of-type(2),
+.layim-chat-main .question-resolve:nth-of-type(2) {
+    margin:0;
+    width:30px;
+    height:20px;
+    margin-top:6px;
+}
+
+/* 预约单相关 */
+.layim-chat-main .appoint-div {
+    
+}
+.layim-chat-main .appoint-div p {
+    margin:0;
+}
+.layim-chat-main .appoint-div .appoint-transfer-btn2 {
+    width:180px;
+    height:36px;
+    background:rgba(251,132,134,1);
+    border-radius:18px;
+    border:none;
+    margin:10px auto;
+    color:#fff;
+    display: block;
+    cursor: pointer;
+}
+.layim-chat-main .appoint-div .appoint-transfer-btn2.question-btn-unuse {
+    background:#FBA8AA;
+    cursor:default;
+}
+.layim-chat-main .appoint-msg-box {
+    display:flex;
+    flex-direction: column;
+}
+.layim-chat-main .appoint-msg-box p {
+    margin:0 0 10px;
+}
+.layim-chat-main .appoint-msg-box .appoint-msg-cancle {
+    width:180px;
+    height:36px;
+    border:1px solid rgba(251,132,134,1);
+    border-radius:18px;
+    margin:25px auto 15px;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    color:#FB8486;
+    font-weight:500;
+}
+.layim-chat-main .appoint-msg-box .appoint-msg-cancle.btn-unuse {
+    border:1px solid #C9BDBB;
+    cursor: default;
+    color:#C9BDBB;
+}
+.layim-chat-main .appoint-detail-box {
+    width:460px;
+    display: flex;
+    flex-direction: column;
+}
+.layim-chat-main .appoint-detail-box h3 {
+    color:#333333;
+    margin:10px 0;
+}
+.layim-chat-main .appoint-detail-box p {
+    margin:7px 0 0;
+    color:#8590A5;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list {
+    padding:0;
+    margin-top:20px;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li {
+    padding:0 0 15px 36px;
+    margin:0 !important;
+    font-size:14px;
+    border-left:1px solid #E0E0E0;
+    position: relative;
+
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li::before {
+    position: absolute;
+    content: '';
+    width:10px;
+    height:10px;
+    background:rgba(224,224,224,1);
+    border-radius:50%;
+    left:-5px;
+    top:0;
+    z-index:5;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li:nth-last-child(1) {
+    border-left:none;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li:nth-of-type(1)::before {
+    background:#FC5B5E;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li:nth-of-type(1)::after {
+    position: absolute;
+    content: '';
+    width:18px;
+    height:18px;
+    background:#FFCBCC;
+    border-radius:50%;
+    left:-9px;
+    top:-4px;
+    z-index:2;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li p{
+    color:#333333;
+    margin:0;
+    line-height: 6px;
+}
+.layim-chat-main .appoint-detail-box .appoint-detail-list li span{
+    color:#999;
+    font-size:12px;
+    line-height:24px;
+    margin-top:10px;
+}
+
+.layim-chat-main .begin-evaluate-detail-box .serve-evaluate-button-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layim-chat-main .begin-evaluate-detail-box .serve-evaluate-button-list span{
+    margin:0 20px;
+    border:1px solid #808080;
+    border-radius: 6px;
+    padding:0 20px;
+    line-height:30px;
+    cursor: pointer;
+}
+.layim-chat-main .begin-evaluate-detail-box .serve-evaluate-button-list span:nth-of-type(1){
+    border:1px solid #808080;
+}
+.layim-chat-main .begin-evaluate-detail-box .serve-evaluate-button-list span:nth-of-type(2){
+    border:1px solid #FC5B5E;
+    color:#FC5B5E;
+}
+.layim-chat-main .begin-evaluate-detail-box .serve-evaluate-button-list span.btn-unuse{
+    border:1px solid #cccccc;
+    color:#cccccc;
+    cursor: default;
+}
 
